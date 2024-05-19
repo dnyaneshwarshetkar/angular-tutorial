@@ -1,0 +1,18 @@
+#1 What is angular?
+    - It is front end framework to build web application.
+    - Angular application is framework of HTML, CSS, Typescript.
+    - Model–view–viewmodel
+#2 How to install
+    - install nodejs
+    - nodejs comes with npm
+    - check nodejs installed or not using
+        - node -v
+        - npm -v
+    - install angular cli using npm
+        - npm install -g @angular/cli
+#3 Check angular cli installed or not
+    - execute following command
+        - ng --help
+#4 Documentation
+    - https://angular.io
+#5 Angular Language

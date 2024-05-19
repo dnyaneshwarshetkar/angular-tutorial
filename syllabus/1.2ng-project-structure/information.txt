@@ -1,0 +1,33 @@
+.angular
+.vscode
+dist
+node_modules
+src
+    - app
+        app.component.css
+        app.component.html
+        app.component.spec.ts
+        app.component.ts
+        app.routes.ts
+
+        // App Config for SSR App
+        app.config.server.ts
+        // App Config for without SSR App
+        app.config.ts
+        
+    - assets
+    - favicon.ico
+    - index.html
+    - main.server.ts
+    - main.ts
+    - styles.css
+.editorConfig
+.gitignore
+angular.json
+package-lock.json
+package.json
+README.md
+server.ts
+tsconfig.app.json
+tsconfig.spec.json
+tsconfig.json
