@@ -1,0 +1,23 @@
+- MVVM architecture
+    MVVM (Model-View-ViewModel) can be adapted to Angular, even though Angular primarily uses a component-based architecture. The principles of MVVM can help structure Angular applications in a way that enhances separation of concerns, maintainability, and testability.
+
+Components of MVVM in Angular
+    Model:
+
+    In Angular, the Model represents the data and business logic, typically encapsulated in services and data models (classes or interfaces).
+    Services are used to fetch data from APIs, manage state, and encapsulate business logic.
+
+    View:
+
+    The View in Angular is defined by the component's template (HTML file) and style (CSS or SCSS file).
+    The template displays data and binds to properties and methods defined in the ViewModel (Component class).
+
+    ViewModel:
+
+    The ViewModel in Angular is the component class (TypeScript file). It contains the data properties and methods that the template binds to.
+    The component class handles user interactions and updates the Model through services.
+
+Key Principles of MVVM in Angular
+    Data Binding: Angular provides data binding mechanisms, such as interpolation ({{ }}), property binding ([ ]), event binding (( )), and two-way binding ([( )]), to connect the View and ViewModel.
+    Dependency Injection: Angular's dependency injection system is used to provide services to components, promoting the separation of concerns.
+    Component-Based Architecture: While Angular is component-based, each component can be viewed as a small MVVM unit, where the component class (ViewModel) manages the data and logic for the component's template (View).
