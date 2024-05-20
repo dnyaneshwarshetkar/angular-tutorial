@@ -1,0 +1,10 @@
+<!-- Property Binding -->
+<h1 [innerHTML]="heading" [title]="heading" [classList]="h1ClassList" [id]="getId()"></h1>
+
+<!-- Event Binding-->
+<button type="button" 
+(click)="buttonClicked($event)" 
+(mouseover)="mouseOverHandler($event)"
+(mouseout)="mouseOutHandler($event)"
+[class.background]="mouseOver"
+>Pls Click Me</button>
