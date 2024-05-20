@@ -9,7 +9,8 @@ Angular Building Blocks
     A TypeScript class that defines behavior. 
     A CSS selector that defines how the component is used in a template.
 #3. Templates
-    - Angular template is html with property binding, event binding, interpolation.
+    - Angular template is html with 
+    property binding, event binding, interpolation.
 #4. MetaData
     - MetaData is data about components, pipes, directives.
     - Which helps angular framework to understand and deal. 
