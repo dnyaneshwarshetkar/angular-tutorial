@@ -8,3 +8,72 @@
 (mouseout)="mouseOutHandler($event)"
 [class.background]="mouseOver"
 >Pls Click Me</button>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Sr.No.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Mobile</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Even</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let singleStudent of studentList;
+               let i = index;
+               let f = first;
+               let l = last;
+               let ev = even" [class.background]="f" [class.redBackground]="l">
+                <td>{{i +1}}</td>
+                <td>{{singleStudent.firstName}}</td>
+                <td>{{singleStudent.lastName}}</td>
+                <td>{{singleStudent.age}}</td>
+                <td>{{singleStudent.mobile}}</td>
+                <td>{{singleStudent.gender}}</td>
+                <td>{{singleStudent.email}}</td>
+                <td>{{f}}</td>
+                <td>{{l}}</td>
+                <td>{{ev}}</td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</div>
+<button (click)="showDiv($event)">Show Div</button>
+<button (click)="toggleDiv($event)">Toggle Div</button>
+<div *ngIf="ifTrue">
+    this div is wrapped inside ngIf.
+</div>
+
+<ng-template [ngIf]="ifTrue">
+    <div>this div is wrapped in ng template</div>
+</ng-template>
+
+
+<!--If Else-->
+
+<div *ngIf="isGender == 'MALE';else elseTemplate">
+    Gender is MALE
+</div>
+
+<ng-template #elseTemplate>
+    <div>
+        Gender is FEMALE.
+    </div>
+</ng-template>
+
+
+
+<div [ngSwitch]="level">
+    <div *ngSwitchCase="'Beginner'">Beginner Candidate</div>
+    <div *ngSwitchCase="'Intermidiate'">Intermidiate Candidate </div>
+    <div *ngSwitchCase="'Expert'">Expert Candidate</div>
+    <div *ngSwitchDefault>THis is Default Div</div>
+</div>

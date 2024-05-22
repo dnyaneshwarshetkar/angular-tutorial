@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Student } from '../interfaces/student';
 
 @Component({
   selector: 'app-add-student',
@@ -28,4 +29,39 @@ export class AddStudentComponent {
  mouseOutHandler(e:MouseEvent){
   this.mouseOver = false;
  }
+
+ studentList:Array<Student> = [{
+  firstName: "John",
+  lastName: "Doe",
+  mobile: "+919767837781",
+  age: 23,
+  email: "johndoe@gmail.com"
+ },{
+  firstName: "Umesh",
+  lastName: "Sadhu",
+  mobile: "+919090909090",
+  age: 23,
+  email: "umesh@gmail.com",
+  gender: "MALE"
+ },
+ {
+  firstName: "Manisha",
+  lastName: "Rajput",
+  mobile: "+919767837781",
+  age: 23,
+  email: "manisha@gmail.com",
+  gender: "FEMALE"
+ }];
+
+ ifTrue = false;
+
+ showDiv(ev:any){
+  this.ifTrue = true;
+ }
+ toggleDiv(ev:any){
+  this.ifTrue = !this.ifTrue;
+ }
+
+ isGender = "FEMALE";
+ level = "ABC";
 }
