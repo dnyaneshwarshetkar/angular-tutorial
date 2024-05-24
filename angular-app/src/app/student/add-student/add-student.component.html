@@ -10,7 +10,7 @@
 >Pls Click Me</button>
 
 <div class="table-container">
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Sr.No.</th>
@@ -30,7 +30,7 @@
                let i = index;
                let f = first;
                let l = last;
-               let ev = even" [class.background]="f" [class.redBackground]="l">
+               let ev = even" [class.bg-success]="f" [class.bg-danger]="l">
                 <td>{{i +1}}</td>
                 <td>{{singleStudent.firstName}}</td>
                 <td>{{singleStudent.lastName}}</td>
@@ -77,3 +77,46 @@
     <div *ngSwitchCase="'Expert'">Expert Candidate</div>
     <div *ngSwitchDefault>THis is Default Div</div>
 </div>
+
+<!--<div *appHasPermission="'view_div'"></div>
+
+<ng-template [appHasPermission]="'view_div'">
+    <div>
+
+    </div>
+</ng-template>-->
+
+<!-- Attribute Directive ngModel -->
+<div>
+    <label for="studentName"></label>
+    <input type="text"
+[(ngModel)]="studentName">
+</div>
+
+<p>
+{{studentName}}
+</p>
+
+<!--<div [ngClass]="{
+    'show': isSuccess,
+    'hide': !isSuccess
+}">
+    this is div
+</div>-->
+
+<button (click)="onButtonClick()">Change Css</button>
+
+<div [ngClass]="isSuccess ? 'show': 'hide'">
+    this is div
+</div>
+
+
+
+<div [ngStyle]="{
+    'color': isSuccess ? 'green': 'red'
+}">
+    this is div
+</div>
+
+
+

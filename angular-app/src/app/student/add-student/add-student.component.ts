@@ -64,4 +64,12 @@ export class AddStudentComponent {
 
  isGender = "FEMALE";
  level = "ABC";
+
+ studentName = "John Doe";
+
+ isSuccess = true;
+
+ onButtonClick(){
+  this.isSuccess = !this.isSuccess;
+ }
 }
