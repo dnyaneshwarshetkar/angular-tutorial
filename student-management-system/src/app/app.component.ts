@@ -2,11 +2,17 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { StudentModule } from './student/student.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule],
+  imports: [
+    RouterOutlet, 
+    CommonModule, 
+    FormsModule,
+    StudentModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -76,4 +82,20 @@ export class AppComponent {
   }
 
   bGColor = 6;
+
+  
+  // FOrm Variable
+  student1 = {
+    title : "Student Details",
+    name : "Geeta Joshi",
+    email : "geetajoshi@gmail.com",
+    mobile : "7812347898"
+  }
+
+  destroy = false;
+  buttonClickedEventHandler(ev:any){
+    console.log(ev);
+    alert(ev);
+    this.destroy = true;
+  }
 }

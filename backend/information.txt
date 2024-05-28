@@ -1,0 +1,6 @@
+GET    /students   To get all students
+GET    /students/:id To get student by id
+POST   /students To create new student
+PUT    /students/:id To Update  student by id
+PATCH  /students/:id To Patch  student by id
+DELETE /students/:id To delete student by id

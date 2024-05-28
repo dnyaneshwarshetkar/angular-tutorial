@@ -1,0 +1,28 @@
+{
+  "students": [
+    {
+      "id": "6fe1",
+      "name": "Prashant Kumar",
+      "gender": "Male",
+      "dob": "01-01-1993",
+      "mobile": "9767837781",
+      "email": "dshetkar0101@gmail.com"
+    },
+    {
+      "id": "d480",
+      "name": "Kavya",
+      "gender": "Female",
+      "dob": "01-01-1991",
+      "mobile": "9767837783",
+      "email": "kavya@gmail.com"
+    },
+    {
+      "id": "7867",
+      "name": "Maya",
+      "gender": "Female",
+      "dob": "01-01-1991",
+      "mobile": "9767837780",
+      "email": "maya@gmail.com"
+    }
+  ]
+}

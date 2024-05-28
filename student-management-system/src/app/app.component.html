@@ -147,3 +147,12 @@ This content will be shown if hasPermission true
     </tbody>
     <tfoot></tfoot>
 </table>
+
+<app-add-student
+*ngIf="destroy == false" 
+[name]="student1.name"
+[title]="student1.title"
+[email]="student1.email"
+[mobile]="student1.mobile"
+
+(buttonClicked)="buttonClickedEventHandler($event)"></app-add-student>
