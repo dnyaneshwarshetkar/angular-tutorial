@@ -1,1 +1,33 @@
 <p>student-list works!</p>
+
+<div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>dob</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let singleStudent of studentList">
+                <td>{{singleStudent.id}}</td>
+                <td>{{singleStudent.name}}</td>
+                <td>{{singleStudent.gender}}</td>
+                <td>{{singleStudent.dob}}</td>
+                <td>{{singleStudent.mobile}}</td>
+                <td>{{singleStudent.email}}</td>
+                <td>
+                    <button [routerLink]="['/student/view-student/',singleStudent.id]">View</button>
+                    <button>Edit</button>
+                    <button (click)="deleteStudentHandler(singleStudent.id)">Delete</button></td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</div>

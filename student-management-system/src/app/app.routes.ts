@@ -7,4 +7,7 @@ export const routes: Routes = [{
 }, {
     path: "student",
     loadChildren: () => import("./student/student.module").then(m=>m.StudentModule)
+},{
+    path: "subject",
+    loadChildren: () => import("./subject/subject.module").then(m=>m.SubjectModule)
 }];

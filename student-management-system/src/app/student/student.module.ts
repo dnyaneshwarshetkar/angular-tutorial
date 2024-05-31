@@ -5,6 +5,8 @@ import { StudentListComponent } from './components/student-list/student-list.com
 import { ViewStudentComponent } from './components/view-student/view-student.component';
 import { DeleteStudentComponent } from './components/delete-student/delete-student.component';
 import { StudentRoutingModule } from './student.routes';
+import { HttpClientModule } from '@angular/common/http';
+import { StudentService } from './services/student.service';
 
 
 
@@ -17,13 +19,15 @@ import { StudentRoutingModule } from './student.routes';
   ],
   imports: [
     CommonModule,
-    StudentRoutingModule
+    StudentRoutingModule,
+    HttpClientModule
   ],
   exports: [
     AddStudentComponent,
     StudentListComponent,
     ViewStudentComponent,
     DeleteStudentComponent
-  ]
+  ],
+  providers: [StudentService]
 })
 export class StudentModule { }
