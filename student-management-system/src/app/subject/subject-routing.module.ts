@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddSubjectComponent } from './components/add-subject/add-subject.component';
 
 const routes: Routes = [{
-  path
+  path: "",
+  component: AddSubjectComponent
 }];
 
 @NgModule({
