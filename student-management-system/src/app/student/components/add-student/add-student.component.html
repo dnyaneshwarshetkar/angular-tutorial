@@ -1,9 +1,58 @@
-<p>add-student works!</p>
-{{name}}
-{{email}}
-{{title}}
-{{mobile}}
+<h1>Add Student</h1>
+<div>Invalid: {{formRef.invalid}}</div>
+<div>Valid: {{formRef.valid}}</div>
 
-<div>
-<button (click)="buttonClickEventHandler($event)">Click Me</button>
-</div>
+<div>Dirty: {{formRef.dirty}}</div>
+<div>Pristine: {{formRef.pristine}}</div>
+
+<div>Touched: {{formRef.touched}}</div>
+<div>Untouched: {{formRef.untouched}}</div>
+
+<form (ngSubmit)="addStudent()" #formRef="ngForm">
+    <div>Invalid: {{nameRef.invalid}}</div>
+    <div>Valid: {{nameRef.valid}}</div>
+
+    <div>Dirty: {{nameRef.dirty}}</div>
+    <div>Pristine: {{nameRef.pristine}}</div>
+
+    <div>Touched: {{nameRef.touched}}</div>
+    <div>Untouched: {{nameRef.untouched}}</div>
+
+    <div>Required: {{nameRef.hasError("required")}}</div>
+    <div>Min Length: {{nameRef.hasError("minlength")}}</div>
+    <div>
+        <label for="name"> Name </label>
+        <input type="text" 
+        id="name" name="name" 
+        [(ngModel)]="student.name" placeholder="Enter your name" required #nameRef="ngModel"
+        minlength="5" />
+        <p *ngIf="nameRef.dirty && nameRef.invalid">
+            <span *ngIf="nameRef.hasError('required')">Name is invalid</span>
+            <span *ngIf="nameRef.hasError('minlength')">Name should be atleast 5 letters long</span>
+        </p>
+    </div>
+    <div>
+        <label for="email"> Email </label>
+        <input type="email" id="email" name="email" [(ngModel)]="student.email" placeholder="Enter your email" required #emailRef="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+        {{emailRef.hasError("pattern")}}
+        <p *ngIf="emailRef.dirty && emailRef.invalid">
+            <span *ngIf="emailRef.hasError('required')">Email is invalid</span>
+            <span *ngIf="emailRef.hasError('pattern')">Email should contain &#64; character</span>
+        </p>
+    </div>
+    <div>
+        <label for="mobile"> Mobile </label>
+        <input type="text" id="mobile" name="mobile" [(ngModel)]="student.mobile" placeholder="Enter your mobile" required />
+    </div>
+    <div>
+        <label for="dob"> Dob </label>
+        <input type="date" id="dob" name="dob" [(ngModel)]="student.dob" placeholder="Enter your dob" />
+    </div>
+    <div>
+        <label> Gender </label>
+        <label><input type="radio" id="gender" name="gender" [(ngModel)]="student.gender" value="MALE" />MALE</label>
+        <label><input type="radio" id="gender" name="gender" [(ngModel)]="student.gender" value="FEMALE" />FEMALE</label>
+    </div>
+    <button type="submit"> Save Student </button>
+</form>
+{{student|json}}

@@ -20,7 +20,7 @@ export class StudentService {
   // Create Student
 
   createStudent(student:any){
-    return this.http.post("http://localhost:3000",student);
+    return this.http.post("http://localhost:3000/students",student);
   }
 
   //Update Student

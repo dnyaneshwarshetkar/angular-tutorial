@@ -1,41 +1,34 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'app-add-student',
   templateUrl: './add-student.component.html',
   styleUrl: './add-student.component.scss'
 })
-export class AddStudentComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  
-  @Input() title: string = "";
-  @Input() name: string = "";
-  @Input() mobile: string = "";
-  @Input() email: string = "";
-  @Output() buttonClicked = new EventEmitter<string>();
-  constructor(){
-    console.log("Invoked Constructor");
+export class AddStudentComponent  {
+  student = {
+    name: "",
+    gender: "MALE",
+    dob: "",
+    mobile: "",
+    email: ""
+  };
+
+  @ViewChild("formRef") fRef:any;
+
+  constructor(private studentService: StudentService){
+
   }
 
-  ngOnInit(){
-    console.log("Invoked ngOnInit");
-  }
-
-  ngOnChanges(){
-    console.log("Invoked ngOnCHanges");
-  }
-
-  ngAfterViewInit(): void {
-      console.log("Invoked ngAfter View Init");
-  }
-
-
-  ngOnDestroy(){
-    console.log("Invoked ngOnDestroy");
-  }
-
-  
-
-  buttonClickEventHandler(ev:any){
-    this.buttonClicked.emit("Button clicked");
+  addStudent(){
+    if(this.fRef.valid){
+      console.log(this.student);
+      this.studentService.createStudent(this.student).subscribe(response=>{
+        alert("Student Created Successfully");
+      })
+    } else {
+      alert("Student form is not valid");
+    }
   }
 }

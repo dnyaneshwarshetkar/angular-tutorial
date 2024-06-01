@@ -7,6 +7,7 @@ import { DeleteStudentComponent } from './components/delete-student/delete-stude
 import { StudentRoutingModule } from './student.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentService } from './services/student.service';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +21,8 @@ import { StudentService } from './services/student.service';
   imports: [
     CommonModule,
     StudentRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports: [
     AddStudentComponent,
