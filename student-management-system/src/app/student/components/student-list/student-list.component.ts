@@ -9,7 +9,9 @@ import { StudentService } from '../../services/student.service';
 export class StudentListComponent {
   studentList:any = [];
   constructor(private studentService: StudentService){
+     setTimeout(()=>{
       this.getStudents()
+     },10000);
   }
 
   deleteStudentHandler(id:string){

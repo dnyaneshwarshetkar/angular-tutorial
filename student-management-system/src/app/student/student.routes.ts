@@ -18,6 +18,9 @@ const routes: Routes = [
   }, {
     path: "view-student/:id",
     component: ViewStudentComponent
+  },{
+    path: "edit-student/:id",
+    component: AddStudentComponent
   }]
   }];
 

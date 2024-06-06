@@ -1,7 +1,7 @@
 <p>student-list works!</p>
 
 <div>
-
+    {{studentList.length ? "" : "Loading"}}
     <table>
         <thead>
             <tr>
@@ -24,7 +24,7 @@
                 <td>{{singleStudent.email}}</td>
                 <td>
                     <button [routerLink]="['/student/view-student/',singleStudent.id]">View</button>
-                    <button>Edit</button>
+                    <button [routerLink]="['/student/edit-student',singleStudent.id]">Edit</button>
                     <button (click)="deleteStudentHandler(singleStudent.id)">Delete</button></td>
             </tr>
         </tbody>

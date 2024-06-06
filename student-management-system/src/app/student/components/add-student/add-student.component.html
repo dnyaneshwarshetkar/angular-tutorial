@@ -1,25 +1,5 @@
-<h1>Add Student</h1>
-<div>Invalid: {{formRef.invalid}}</div>
-<div>Valid: {{formRef.valid}}</div>
-
-<div>Dirty: {{formRef.dirty}}</div>
-<div>Pristine: {{formRef.pristine}}</div>
-
-<div>Touched: {{formRef.touched}}</div>
-<div>Untouched: {{formRef.untouched}}</div>
-
+<h1>{{addOrUpdate ? "Add": "Update"}} Student</h1>
 <form (ngSubmit)="addStudent()" #formRef="ngForm">
-    <div>Invalid: {{nameRef.invalid}}</div>
-    <div>Valid: {{nameRef.valid}}</div>
-
-    <div>Dirty: {{nameRef.dirty}}</div>
-    <div>Pristine: {{nameRef.pristine}}</div>
-
-    <div>Touched: {{nameRef.touched}}</div>
-    <div>Untouched: {{nameRef.untouched}}</div>
-
-    <div>Required: {{nameRef.hasError("required")}}</div>
-    <div>Min Length: {{nameRef.hasError("minlength")}}</div>
     <div>
         <label for="name"> Name </label>
         <input type="text" 
@@ -53,6 +33,6 @@
         <label><input type="radio" id="gender" name="gender" [(ngModel)]="student.gender" value="MALE" />MALE</label>
         <label><input type="radio" id="gender" name="gender" [(ngModel)]="student.gender" value="FEMALE" />FEMALE</label>
     </div>
-    <button type="submit"> Save Student </button>
+    <button type="submit"> {{addOrUpdate ? "Save": "Update"}} Student </button>
 </form>
 {{student|json}}

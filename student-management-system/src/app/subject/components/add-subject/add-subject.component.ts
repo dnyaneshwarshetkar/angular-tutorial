@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-subject',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './add-subject.component.scss'
 })
 export class AddSubjectComponent {
-
+  nameControl = new FormControl("John Doe");
 }
