@@ -29,15 +29,6 @@
     </p>
 </div>
 <div>
-    <label>Syllabus</label>
-    <textarea type="text" id="syllabus" name="syllabus" formControlName="syllabus" placeholder="Enter subject syllabus"></textarea>
-    <p *ngIf="subjectForm.get('syllabus')?.invalid && subjectForm.get('syllabus')?.dirty">
-        <span *ngIf="subjectForm.get('syllabus')?.hasError('required')">
-            Name is required
-        </span>
-    </p>
-</div>
-<div>
     <label>Status</label>
     <select id="status" name="status" formControlName="status">
         <option value=""> Select Status</option>
@@ -49,6 +40,27 @@
             Status is required
         </span>
     </p>
+</div>
+<div formArrayName="syllabus">
+    <label>Syllabus</label>
+    <button type="button" (click)="plusChapter()">Add Chapter</button>
+    <div class="chapter-form-container" *ngFor="let singleChapter of syllabus.controls;let i=index">
+        <ng-container [formGroupName]="i">
+            <div>
+                <label>Title</label>
+                <input type="text" id="title" name="title" placeholder="Enter title" formControlName="title">
+            </div>
+            <div>
+                <label>Weightage</label>
+                <input type="number" id="weightage" name="weightage" placeholder="Enter weightage" formControlName="weightage">
+            </div>
+            <div>
+                <label>Content</label>
+                <textarea id="content" name="content" formControlName="content" placeholder="Enter Content"></textarea>
+            </div>
+            <button type="button" (click)="minusChapter(i)">Remove Chapter</button>
+        </ng-container>
+    </div>
 </div>
 <div>
     <button type="submit">Save Subject</button>

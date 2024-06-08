@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-add-subject',
@@ -14,7 +14,7 @@ export class AddSubjectComponent implements OnInit {
 
   subjectForm = new FormGroup({
     name: new FormControl("", [Validators.required, Validators.maxLength(20), Validators.minLength(10)]),
-    syllabus: new FormControl("", [Validators.required]),
+    syllabus: new FormArray([this.getChapterForm()]),
     status: new FormControl("Active", [Validators.required])
   });
 
@@ -34,4 +34,27 @@ export class AddSubjectComponent implements OnInit {
         alert("Subject details are invalid");
       }
     }
+
+    getChapterForm(){
+      return new FormGroup({
+        title: new FormControl("", [Validators.required]),
+        weightage:  new FormControl("", [Validators.required]),
+        content: new FormControl("", [Validators.required])
+      })
+    }
+
+
+    get syllabus() : FormArray {
+      return this.subjectForm.get("syllabus") as FormArray;
+    }
+
+    plusChapter(){
+      this.syllabus.push(this.getChapterForm());
+    }
+
+    minusChapter(i:number){
+      this.syllabus.removeAt(i);
+    }
+
+
 }
