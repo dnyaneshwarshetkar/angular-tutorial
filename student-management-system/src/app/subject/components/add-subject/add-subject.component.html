@@ -1,7 +1,58 @@
 <h1>Add Subject</h1>
 <div>
-    <label>Name</label>
-    <input type="text" id="name" name="name" [formControl]="nameControl">
+    Invalid: {{nameControl.invalid}}
+    <br/>
+    Valid: {{nameControl.valid}}
+    <br/>
+    Touched: {{nameControl.touched}}
+    <br/>
+    Untouched: {{nameControl.untouched}}
+    <br/>
+    Dirty: {{nameControl.dirty}}
+    <br/>
+    Pristine: {{nameControl.pristine}}
 </div>
+<form [formGroup]="subjectForm" (ngSubmit)="saveOrUpdateSubject()">
+<div>
+    <label>Name</label>
+    <input type="text" id="name" name="name" formControlName="name" placeholder="Enter subject name">
+    <p *ngIf="subjectForm.get('name')?.invalid && subjectForm.get('name')?.dirty">
+        <span *ngIf="subjectForm.get('name')?.hasError('required')">
+            Name is required
+        </span>
+        <span *ngIf="subjectForm.get('name')?.hasError('maxlength')">
+            Name should less than 20 alphabets
+        </span>
+        <span *ngIf="subjectForm.get('name')?.hasError('minlength')">
+            Name should be greater than 4 alphabets
+        </span>
+    </p>
+</div>
+<div>
+    <label>Syllabus</label>
+    <textarea type="text" id="syllabus" name="syllabus" formControlName="syllabus" placeholder="Enter subject syllabus"></textarea>
+    <p *ngIf="subjectForm.get('syllabus')?.invalid && subjectForm.get('syllabus')?.dirty">
+        <span *ngIf="subjectForm.get('syllabus')?.hasError('required')">
+            Name is required
+        </span>
+    </p>
+</div>
+<div>
+    <label>Status</label>
+    <select id="status" name="status" formControlName="status">
+        <option value=""> Select Status</option>
+        <option value="Active"> Active</option>
+        <option value="Inactive"> Inactive</option>
+    </select>
+    <p *ngIf="subjectForm.get('status')?.invalid && subjectForm.get('status')?.dirty">
+        <span *ngIf="subjectForm.get('status')?.hasError('required')">
+            Status is required
+        </span>
+    </p>
+</div>
+<div>
+    <button type="submit">Save Subject</button>
+</div>
+</form>
 
 {{nameControl.value}}
